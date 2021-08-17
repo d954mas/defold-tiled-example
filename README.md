@@ -242,15 +242,38 @@ Pivot of object is left-top corner. Need move pivot to center in parser.
 ```
 1, 1, 1, 1, 1, 1, 1, 1, 1, 2684354670, 0, 0, 0, 0, 30, 3, 3, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1,...
 ```
-
 Tiled use bitmask to save rotation and flip. 2684354670 is rotated tile
+```lua
+--diagonal flip https://discourse.mapeditor.org/t/can-i-rotate-tiles/703/5
+function M.tile_flip_to_scale_and_angle(fh, fv, fad)
+    local scale = vmath.vector3(1)
+    local rotation = 0
+    if fad then
+        if (fv and not fh) then
+            rotation = 90
+        elseif (fh and not fv) then
+            rotation = 270
+        elseif (fh and fv) then
+            rotation = 270
+            scale.x = -scale.x
+        else
+            rotation = -270
+            scale.x = -scale.x
+        end
+    else
+        scale.x = fh and -scale.x or scale.x
+        scale.y = fv and -scale.y or scale.y
+    end
+    return scale, rotation
+end
+```
 
 # Parser
 
 https://github.com/d954mas/defold-tiled-example/tree/master/assets/bundle/common/levels/parser
 
 use system lua to pack levels. Use luarocks to install dependencies
-Need lfd, cjons,bit. 
+Need lfs, cjons,bit. 
 
 1)Parse tileset
 ```lua

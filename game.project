@@ -58,3 +58,6 @@ max_instances = 2048
 [resource]
 max_resources = 2048
 
+[html5]
+scale_mode = fit
+

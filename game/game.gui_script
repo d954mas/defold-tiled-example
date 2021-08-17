@@ -79,7 +79,12 @@ function init(self)
     load_game_level(self, LOAD_TYPE.COLLECTION)
 
     local can_load_runtime_level = false
-    if (lfs) then
+    local sys_info = sys.get_sys_info()
+    local platform = sys_info.system_name
+    local is_desktop = platform == "Windows" or platform == "Linux" or platform == "Darwin"
+
+
+    if (lfs and is_desktop) then
         PARSER.set_tilesets(TILESETS)
         local level_path = "levels\\runtime\\lua"
         for file in lfs.dir(lfs.currentdir() .. "\\" .. level_path) do

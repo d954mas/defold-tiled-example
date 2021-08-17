@@ -1259,7 +1259,7 @@ layers {
   cell {
     x: 41
     y: 3
-    tile: 26
+    tile: 0
     h_flip: 0
     v_flip: 0
   }

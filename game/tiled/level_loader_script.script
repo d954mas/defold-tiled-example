@@ -1,0 +1,39 @@
+local LEVEL_LOADER = require "game.tiled.level_loader"
+local PARSER = require "assets.bundle.common.levels.parser.parser"
+local TILESETS = require "game.tilesets"
+
+
+function on_message(self, message_id, message, sender)
+    if (message_id == hash("load_level")) then
+        if (message.type == "editor") then
+            local file = "/assets/bundle/common/levels/editor/result/level_1.json"
+            local data = assert(json.decode(sys.load_resource(file)),"no level")
+            LEVEL_LOADER.load(data)
+        elseif (message.type == "runtime") then
+            --pack all runtime levels
+            --load runtime_1 level
+            PARSER.set_tilesets(TILESETS)
+            local level_path = "levels\\runtime\\lua"
+            local result_path = "levels\\runtime\\result"
+            for file in lfs.dir(lfs.currentdir() .. "\\" .. level_path) do
+                if file ~= "." and file ~= ".." then
+                    print("parse level:" .. file)
+                    PARSER.parse_level(lfs.currentdir() .. "\\" .. level_path .. "\\" .. file,
+                            lfs.currentdir() .. "\\" .. result_path .. "\\")
+                end
+            end
+            local path = "./levels/runtime/result/" .. "runtime_1" .. ".json"
+            local file = io.open(path, "r")
+            local data, read_err = file:read("*a")
+            file:close()
+            if (read_err) then
+                print("can't read level:" .. tostring(read_err))
+            else
+                LEVEL_LOADER.load(json.decode(data))
+            end
+
+        end
+    end
+end
+
+

@@ -9,6 +9,8 @@ But using external tiled editor can give your more power and freedom.
 
 [![](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/d954mas)
 
+[PLAY](https://d954mas.github.io/defold-tiled-example/)
+
 # Project
 Have 3 type of levels.
 

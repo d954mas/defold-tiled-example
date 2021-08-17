@@ -19,6 +19,8 @@ Have 3 type of levels.
 3)Json runtime(only in desktop). Load level_runtime.json if it exist. Load from bundle resources.Can be changed in runtime without defold editor.
 Can be shared with level designers without defold project,only need desktop bundle of game.
 
+<img src="https://github.com/d954mas/defold-tiled-example/blob/master/doc/game.png" width="800">
+
 
 # Tiled vs Defold Tilemap
 

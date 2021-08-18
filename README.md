@@ -69,7 +69,8 @@ Render in that tutorial is very simple. In only place object when level created.
 ## Text based level(json)
 1)Exported from external editor(tiled)
 
-Tiled: Defold
+2)Need level loader and render in defold.
+
 |KEY            | Collection level         | Json level |
 | ------------- | ------------------------ | ---------- | 
 | Creation  | Editor | Editor,runtime  |

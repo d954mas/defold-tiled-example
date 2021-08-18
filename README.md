@@ -272,6 +272,9 @@ end
 
 https://github.com/d954mas/defold-tiled-example/tree/master/assets/bundle/common/levels/parser
 
+[level_1.json](https://github.com/d954mas/defold-tiled-example/blob/679376b6d8075a86cd5e5f7a826df974b9426bae/assets/bundle/common/levels/editor/result/level_1.json)
+File is big because it use 1 tile sized rects for geometry.(scale physic rects was not working for me).
+
 use system lua to pack levels. Use luarocks to install dependencies
 Need lfs, cjons,bit. 
 
@@ -368,5 +371,3 @@ end
 https://github.com/d954mas/defold-tiled-example/blob/master/game/tiled/level_loader.lua
 
 create tiles,geometry, place player.
-
-geometry scale not worked. So use a lot of rects with size of 1 tile.

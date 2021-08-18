@@ -26,7 +26,6 @@ Can be shared with level designers without defold project,only need desktop bund
 
 # Tiled vs Defold Tilemap
 
-Tiled: Defold
 |KEY            | Tiled(go render)         | Tiled(Defold tilemap render)| Defold |
 | ------------- | ------------------------ | ----------------------------| ------ |
 | Map View  | orthogonal,isometric,hexagonal |orthogonal| orthogonal  |
